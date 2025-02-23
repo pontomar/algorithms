@@ -2,8 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
-public class BranchBound {
+public class GreedyBinPacking {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -27,24 +26,21 @@ public class BranchBound {
         int weightLimit = scanner.nextInt();
         scanner.close();
 
-        List<List<Integer>> result = branchAndBound(items, weightLimit, 0, suitcases);
+        List<List<Integer>> result = greedyBinPacking(items, weightLimit, 0, suitcases);
 
         for (int i = 0; i < result.size(); i++) {
             System.out.println("Total Weight of Suitcase " + i + " : " + result.get(i).getFirst());
         }
     }
 
-    //TODO: transform the algorithm, so that we can print the list of which item goes into which bag
-    //TODO: Refactor / Simplify Code
-
-    public static List<List<Integer>> branchAndBound(List<Integer> items, int maxWeight, int currentItem, List<List<Integer>> suitcases) {
+    public static List<List<Integer>> greedyBinPacking(List<Integer> items, int maxWeight, int currentItem, List<List<Integer>> suitcases) {
         if (currentItem >= items.size()) {
             return suitcases;
         }
 
         int weightToAdd = items.get(currentItem);
         if (weightToAdd > maxWeight) {
-            return branchAndBound(items, maxWeight, currentItem + 1, suitcases);
+            return greedyBinPacking(items, maxWeight, currentItem + 1, suitcases);
         }
         int currentSuitcase = 0;
         while (currentSuitcase < suitcases.size()) {
@@ -52,7 +48,7 @@ public class BranchBound {
             currentTotalWeight += weightToAdd;
             if (currentTotalWeight <= maxWeight) {
                 suitcases.get(currentSuitcase).set(0, currentTotalWeight);
-                return branchAndBound(items, maxWeight, currentItem + 1, suitcases);
+                return greedyBinPacking(items, maxWeight, currentItem + 1, suitcases);
             } else {
                 currentSuitcase++;
             }
@@ -60,6 +56,6 @@ public class BranchBound {
         List<Integer> newSuitcase = new ArrayList<>();
         newSuitcase.add(weightToAdd);
         suitcases.add(newSuitcase);
-        return branchAndBound(items, maxWeight, currentItem+1, suitcases);
+        return greedyBinPacking(items, maxWeight, currentItem+1, suitcases);
     }
 }
