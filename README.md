@@ -20,7 +20,7 @@ This classic number series is often used to introduce recursion in programming.
 ℹ️ How it works: 
 1. Sort all edges by their weights
 2. Start iterating by adding the next lowest-weight edge to the solution tree
-=> constraint: so that it doesn't form a cycle
+=> constraint: so that it doesn't form a cycle  
 🪄 The trick is to assign a root node to each node. Initially each node is its own root. As the first edge is added  
 to the solution tree, one of the two nodes becomes the root for the whole solution space and the other node gets assigned that root node. If the nodes of an edge to add
 both have the same root node, it is not added to the solution tree as it would form a cycle. If they have different root nodes, we perform a union by setting the root node of one of the nodes to the other and then add the edge to the solution, effectively merging the two sets.
