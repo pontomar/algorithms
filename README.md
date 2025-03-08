@@ -10,13 +10,13 @@ This repo contains code for the following algorithms & problems:
 ### Fibonacci
 🔢 Fibonacci Series: 0, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...  
 💡 A Fibonacci x can be calculated with the following formula: Fx = Fx-1 + Fx-2  
-💡 In other words: in the Fibonacci Series, the addition of the current and previous number equals the next number. 
+💡 In other words: in the Fibonacci Series, the addition of the current and previous number equals the next number.   
 💡 Every 3rd number is divisible by two, every 4th number is divisible by 4, etc.
 
 This classic number series is often used to introduce recursion in programming.
 
 ### Kruskal
-💡 An exact greedy algorithm to find a Minimum Spanning Tree (MST)
+💡 An exact greedy algorithm to find a Minimum Spanning Tree (MST)  
 ℹ️ How it works: 
 1. Sort all edges by their weights
 2. Start iterating by adding the next lowest-weight edge to the solution tree
