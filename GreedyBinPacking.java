@@ -10,7 +10,7 @@ public class GreedyBinPacking {
         List<List<Integer>> suitcases = new ArrayList<>();
         List<Integer> items = new ArrayList<>();
         String input = scanner.nextLine();
-        String[] itemStrings = input.split(" ");  // Split the input by spaces
+        String[] itemStrings = input.split(" "); 
 
         // Convert each string to an integer and add it to the items list
         for (String item : itemStrings) {
